@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm") version "2.0.0"
+    application
 }
 
 group = "com.nickcoblentz.sftp"
@@ -19,4 +20,8 @@ tasks.test {
 }
 kotlin {
     jvmToolchain(21)
+}
+
+application {
+    mainClass = "SFTPTimingAttackClientKt"
 }

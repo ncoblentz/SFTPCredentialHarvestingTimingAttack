@@ -15,10 +15,10 @@ fun main(args: Array<String>) {
     val hostname = "your-sftp-server-hostname-here"
     val port = 22
     val credentials = mapOf(
-        "user1" to "a",
-        "user2" to "a",
-        "user3" to "a",
-        "user4" to "a",
+        "username1" to "password1",
+        "username2" to "password2",
+        "username3" to "password3",
+        "username4" to "password4",
     )
 
     var results = mutableListOf<SFTPAttemptResult>()
@@ -35,6 +35,7 @@ fun main(args: Array<String>) {
         results.add(SFTPAttemptResult(credentialPair.key,credentialPair.value,passwordResponseTimes))
     }
 
+    println("Username\tPassword\tAvg. Response Time\tResponse Time Test Case Results")
     for(result in results) {
         println("${result.username}\t${if(result.password!=null) {result.password} else {"null"}}\t${result.averageResponseTime()}\t${result.responseTimes.joinToString("\t")}")
     }
